@@ -1,0 +1,20 @@
+/*
+Path: src/style.css
+*/
+
+body {
+  background-color: #7AB238;
+}
+
+body, #app {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.main-content-scroll {
+  position: relative;
+  top: 56px; /* altura navbar bootstrap */
+  bottom: 56px; /* altura footer (ajustar si es necesario) */
+  height: calc(100vh - 56px - 56px); /* header + footer */
+  overflow-y: auto;
+}
