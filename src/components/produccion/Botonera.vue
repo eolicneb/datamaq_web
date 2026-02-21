@@ -18,6 +18,15 @@ Path: src/components/Botonera.vue
       <label for="fecha-input" class="botonera-label">Fecha:</label>
       <input id="fecha-input" type="date" v-model="fecha" class="botonera-input" @change="emitChange" />
     </div>
+    <div class="botonera-group">
+      <label for="fecha-input" class="botonera-label">Dato:</label>
+      <select id="label-select" v-model="label" class="botonera-select" @change="emitChange">
+        <option value="vel_upm">Velocidad (unidades/minuto)</option>
+        <option value="edge_position">Posición de banda</option>
+        <option value="buttler_diameter">Diámetro en buttler</option>
+        <option value="buttler_width">Ancho en buttler</option>
+      </select>
+    </div>
   </div>
 </template>
 <style scoped>
@@ -50,9 +59,10 @@ import { ref } from 'vue'
 
 const turno = ref('central')
 const fecha = ref(new Date().toISOString().slice(0, 10))
+const label = ref('vel_upm')
 const emit = defineEmits(['update:params'])
 
 function emitChange() {
-  emit('update:params', { turno: turno.value, fecha: fecha.value })
+  emit('update:params', { turno: turno.value, fecha: fecha.value, label: label.value })
 }
 </script>

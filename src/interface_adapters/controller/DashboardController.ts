@@ -19,7 +19,8 @@ export function useDashboardController(initialParams?: Partial<DashboardQueryPar
   // Estado reactivo para los parámetros
   const params = ref<DashboardQueryParams>({
     fecha: initialParams?.fecha || new Date().toISOString().slice(0, 10),
-    turno: initialParams?.turno || 'central'
+    turno: initialParams?.turno || 'central',
+    label: initialParams?.label || 'vel_upm'
   })
 
   async function fetchData() {

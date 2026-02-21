@@ -20,6 +20,7 @@ export async function fetchDashboardData(params: DashboardQueryParams): Promise<
     url.searchParams.set('periodo', 'dia')
     url.searchParams.set('fecha', params.fecha)
     url.searchParams.set('turno', params.turno)
+    if (params.label !== null) { url.searchParams.set('label', params.label) }
 
     const response = await fetch(url.toString())
     if (!response.ok) throw new Error('Error al obtener datos del dashboard')

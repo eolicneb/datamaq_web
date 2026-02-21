@@ -28,13 +28,12 @@ import Botonera from "./Botonera.vue"
 import DataMaqInfo from "./DataMaqInfo.vue"
 import { useDashboardController } from "../../interface_adapters/controller/DashboardController"
 import { getInfoDisplayProps } from "../../interface_adapters/presenter/DataMaqPanelPresenter"
+import type { DashboardQueryParams } from "../../entities/DashboardQueryParams"
 
 const { dashboard, loading, error, chartOptions, updateParams } = useDashboardController()
 const infoDisplayProps = computed(() => getInfoDisplayProps(dashboard.value))
 
-type TurnoType = "central" | "manana" | "tarde" | "dia" | "completo" | undefined
-
-function onUpdateParams(params: { turno: TurnoType; fecha: string }) {
+function onUpdateParams(params: Partial<DashboardQueryParams>) {
   updateParams(params)
 }
 </script>
